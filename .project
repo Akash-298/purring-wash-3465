@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>violent-market-7865</name>
+	<name>purring-wash-3465</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>violent-market-7865</name>
-			<type>2</type>
-			<location>C:/Users/NAVEEN/Desktop/violent-market-7865</location>
-		</link>
-	</linkedResources>
 </projectDescription>
