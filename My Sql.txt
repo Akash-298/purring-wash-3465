@@ -1,0 +1,27 @@
+show databases; 
+create database sb101;
+use sb101;
+"Create table for Hod"
+create table Hod(name varchar(13),username varchar(20) unique key not null,password varchar(10) not null);
+
+"Create Enginer Table"
+create table enginer(enId int primary key AUTO_INCREMENT,name varchar(15) not null,username varchar(20) unique key not null ,password varchar(20) not null,en_role varchar(10) not null);
+
+"Create Complain table"
+create table complain(cid int primary key auto_increment,cname varchar(18) not null,c_status varchar(15) not null default 'pending',c_role varchar(15) not null);
+
+"create eng_complain table"
+create table eng_complain(enId int not null,cid int not null,foreign key(enId) references enginer(enId),foreign key(cid) references complain(cid));
+
+"create Employee table"
+create table employee(emId int primary key auto_increment,ename varchar(15) not null,username varchar(15) unique key not null,password varchar(15) not null);
+
+"create emp_complain " for emp history purchose:
+create table emp_complain(em_emId int,c_cid int,foreign key(em_emId) references employee(emid),foreign key(c_cid) references complain(cid));
+
+// external commands;
+> select * from enginer INNER JOIN complain INNER JOIN eng_complain ON enginer.enId=eng_complain.enId and complain.cid=eng_complain.cid where enginer.enId=1 group by enginer.name; 
+
+mysql> select * from enginer INNER JOIN complain INNER JOIN eng_complain ON enginer.enId=eng_complain.enId and complain.cid=eng_complain.cid where complain.cid=3 group by enginer.name;
+
+select complain.cid,complain.cname,complain.c_status,complain.c_role from employee INNER JOIN complain INNER JOIN emp_complain ON employee.emId=emp_complain.em_emId and complain.cid=emp_complain.c_cid where employee.emId=1;
