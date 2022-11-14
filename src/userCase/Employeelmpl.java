@@ -21,9 +21,11 @@ public class Employeelmpl implements EmpIoyeeIterface {
 		EmployeeBeen objBeen=null;
 		
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter Your username");
+		
+		System.out.println("Enter username");
 		String usernameString=scanner.next();
-		System.out.println("Enter Your Password");
+		
+		System.out.println("Enter Password");
 		String passString=scanner.next();
 		Connection connection=DBUtil.provideConnection();
 		try {
@@ -52,19 +54,22 @@ public class Employeelmpl implements EmpIoyeeIterface {
 		EmployeeBeen objBeen=null;
 		
 	Scanner scanner=new Scanner(System.in);
-	System.out.println("Enter Your Name");
+	System.out.println("Enter Name");
 	String nameString=scanner.next();
-	System.out.println("Enter Your username");
+	System.out.println("Enter username");
 	String usernameString=scanner.next();
-	System.out.println("Enter Your Password");
+	System.out.println("Enter Password");
 	String passString=scanner.next();
+	
 	Connection connection=DBUtil.provideConnection();
+	
 	try {
 		PreparedStatement preparedStatement = connection.prepareStatement("insert into employee(ename,username,password)values(?,?,?)");
 		preparedStatement.setString(1, nameString);
 		preparedStatement.setString(2,usernameString);
 		preparedStatement.setString(3, passString);
 		int x = preparedStatement.executeUpdate();
+		
 		if(x>0) {
 			objBeen=new EmployeeBeen(nameString,usernameString,passString);
 		}
@@ -84,10 +89,13 @@ public class Employeelmpl implements EmpIoyeeIterface {
 		System.out.println("Enter Your Complaing details");
 		String cnameString=scanner.nextLine();
 		System.out.println("Enter The complain chocie");
+		
 		System.out.println("Enter 1 for Hardware");
 		System.out.println("Enter 2 for Software");
+		
 		int x=scanner.nextInt();
 		String roleString=(x==1)?"Hardware":"software";
+		
 		
 		Connection connection=DBUtil.provideConnection();
 		 try {
@@ -116,9 +124,13 @@ public class Employeelmpl implements EmpIoyeeIterface {
 				
 			}
 			PreparedStatement preparedStatement2= connection.prepareStatement("insert into emp_complain values(?,?)");
+			
 			preparedStatement2.setInt(1, obj.getEmpId());
+			
 			preparedStatement2.setInt(2, cid);
+			
 			int value=preparedStatement2.executeUpdate();
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -132,10 +144,14 @@ public class Employeelmpl implements EmpIoyeeIterface {
 	public List<EmpProblemClassbeen> getComplain() {
 		// TODO Auto-generated method stub
 		List<EmpProblemClassbeen> list=new ArrayList<>();
+		
 		Scanner sc=new Scanner(System.in);
+		
 		System.out.println("Enter Any Complain Id");
 		int choice=sc.nextInt();
+		
 		Connection connection=DBUtil.provideConnection();
+		
 		try {
 			PreparedStatement preparedStatement= connection.prepareStatement("select * from enginer INNER JOIN complain INNER JOIN eng_complain ON enginer.enId=eng_complain.enId and complain.cid=eng_complain.cid where complain.cid=? group by enginer.name");
 			preparedStatement.setInt(1, choice);
@@ -188,8 +204,9 @@ public class Employeelmpl implements EmpIoyeeIterface {
 	public String changePassword(EmployeeBeen obj) {
 		String resString=null;
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter Your new Password");
+		System.out.println("Enter new Password");
 		String newPassword=scanner.next();
+		
 		Connection connection=DBUtil.provideConnection();
 		try {
 			PreparedStatement preparedStatement= connection.prepareStatement("update employee set password=? where emId=?");

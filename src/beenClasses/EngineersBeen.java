@@ -1,16 +1,19 @@
 package beenClasses;
 
 public class EngineersBeen {
+	
 	@Override
 	public String toString() {
 		return "| enid: " + enid + ", engNaame: " + engNaame + ", engUsername: " + engUsername + ", password:  "
 				+ password + ", en_role:  " + en_role + "|";
 	}
+	
 	private int enid;
 	private String engNaame;
 	private String engUsername;
 	private String password;
 	private String en_role;
+	
 	public EngineersBeen(int enid, String engNaame,String engUsername, String password, String en_role) {
 		this.enid = enid;
 		this.engNaame = engNaame;
@@ -18,6 +21,7 @@ public class EngineersBeen {
 		this.engUsername=engUsername;
 		this.en_role = en_role;
 	}
+	
 	public EngineersBeen(String engNaame,String engUsername, String password, String en_role) {
 		this.engNaame = engNaame;
 		this.engUsername=engUsername;
@@ -27,6 +31,7 @@ public class EngineersBeen {
 	public EngineersBeen() {
 		
 	}
+	
 	public int getRoll() {
 		return enid;
 	}

@@ -21,14 +21,14 @@ public class Main {
 	static Employeelmpl employeelmpl=new Employeelmpl();
 	public static void loding() {
     	System.out.println();
-    	System.out.print("Loading");
+    	
      }
 	
 	
 		public static void employeMethod() {
 			while(true) {
-				System.out.println("WELCOME"+employeeBeen.getEmpName());
-				System.out.println("Choose");
+				System.out.println("WELCOME TO Online Hardware and software support system "+employeeBeen.getEmpName());
+				System.out.println("SELECT ANY ONE OPTION");
 				System.out.println("1 Ragister New Complain");
 				System.out.println("2 chek complain Status");
 				System.out.println("3 check All compalains");
@@ -87,56 +87,57 @@ public class Main {
 		System.out.println("ONLINE HARDWARE AND SOFTWARE SYSTEM SUPPORT");
 		while(true) {
 			Scanner sc=new Scanner(System.in);
-			Thread.sleep(600);
-			System.out.println(" Choose");
-			Thread.sleep(600);
-			System.out.println("1.\b HOD");
-			Thread.sleep(600);
-			System.out.println("2 \b Enginer");
-			Thread.sleep(600);
-			System.out.println("3 \b Employee");
+			
+			System.out.println(" SELECT ANY ONE OPTION");
+		
+			System.out.println("1. HOD");
+	
+			System.out.println("2  Engineer");
+		
+			System.out.println("3  Employee");
 			int choice=sc.nextInt();
 			switch (choice) {
 			case 1:
-//				Thread.sleep(600);
+//			
 				loding();
-					System.out.println("WELCOME HOD");
-					System.out.println("Choose");
-					Thread.sleep(600);
+					System.out.println("HOD DEPRTMENT WELCOMES YOU");
+					System.out.println("SELECT ANY ONE OPTION");
+				
 					System.out.println("1 Login");
-					Thread.sleep(600);
+				
 					System.out.println("2 Back");
-					Thread.sleep(600);
+				
 					int hodChoice=sc.nextInt();
 					if(hodChoice==1) {
-						Thread.sleep(600);
+					
 						System.out.println("Enter Username:) ");
 						
 						String usernameString=sc.next();
-						System.out.println("Enter Password:) ");
+						
+						System.out.println("Enter YOUR Password:) ");
 						String passwordString=sc.next();
 						try {
 							String res =hodobjHodImpl.hodlogin(usernameString, passwordString);
 							if(res!=null) {
 								System.out.println("Login sucessfully");
 								while(true) {
-									Thread.sleep(600);
+								
 									System.out.println("========= welcome "+res.toUpperCase()+" ===============");
-									Thread.sleep(600);
-									System.out.println("Choose");
-									Thread.sleep(600);
-									System.out.println("1 Register a new Enginer");
-									Thread.sleep(600);
-									System.out.println("2 Enginer List");
-									Thread.sleep(600);
-									System.out.println("3 Delete Enginer");
-									Thread.sleep(600);
+									
+									System.out.println("SELECT ANY ONE OPTION");
+						
+									System.out.println("1 Register a new Engineer");
+						
+									System.out.println("2 See Enginer List");
+					
+									System.out.println("3 Delete an  Engineer");
+							
 									System.out.println("4 See all The Problems");
-									Thread.sleep(600);
-									System.out.println("5 Assign Problem  to the Enginer");
-									Thread.sleep(600);
-									System.out.println("6 Enter for Exit");
-									Thread.sleep(600);
+				
+									System.out.println("5 Assign Problem  to the Engineer");
+				
+									System.out.println("6 Exit");
+			
 									int hodChoic=sc.nextInt();
 									if(hodChoic==1) {
 									String s=hodobjHodImpl.hodRagisterEng();
@@ -152,8 +153,9 @@ public class Main {
 										if(list.size()!=0) {
 											list.forEach(s-> System.out.println(s));
 										}
+										
 										else {
-											System.out.println("NO Data Found");
+											System.out.println("NO Data is there");
 										}
 										
 									}
@@ -174,7 +176,7 @@ public class Main {
 											list.forEach(s-> System.out.println(s));
 										}
 										else {
-											System.out.println("NO Data Found");
+											System.out.println("NO Data is there");
 										}
 										
 									}
@@ -213,28 +215,35 @@ public class Main {
 			case 2:
 //				Thread.sleep(600);
 				loding();
-				System.out.println("WELCOME TO ENGINEER PAGE");
-				Thread.sleep(600);
-				System.out.println("Choose");
-				Thread.sleep(600);
+				System.out.println("WELCOME TO ENGINEER DEPARTMENT");
+		
+				System.out.println("SELECT ANY ONE OPTION");
+			
 				System.out.println("1 Login");
-				Thread.sleep(600);
+			
 				System.out.println("2 Back");
-				Thread.sleep(600);
+		
 				int engchoice=sc.nextInt();
+				
+				
 				if(engchoice==1) {
 					engobj= engerlmplobj.engLogin();
+					
+					
 					if(engobj!=null) {
-						Thread.sleep(600);
+					
 						while(true) {
 							System.out.println("================== Welcome "+ engobj.getEngNaame() +"=====================");
-							System.out.println("Choose");
-							Thread.sleep(600);
-							System.out.println("1 check Your all complains");
+							System.out.println("SELECT ANY ONE OPTION");
+				
+							System.out.println("1 check all complains assign to you");
+							
 							System.out.println("2 update Your work ");
-							System.out.println("3 see pase complains");
-							Thread.sleep(600);
-							System.out.println("4 update Your password");
+							
+							System.out.println("3 see past complains");
+		
+							System.out.println("4 update profile password");
+							
 							System.out.println("5 Exit");
 							int engoptionChoice=sc.nextInt();
 							
@@ -250,10 +259,12 @@ public class Main {
 								}
 							}
 							else if(engoptionChoice==2) {
+								
 								list=engerlmplobj.getProblemAssignmed(engobj);
 								System.out.println("Eneter Your Compalain id: ");
 								int cid=sc.nextInt();
 								boolean flag=false;
+								
 								for (ProblemsBeen problemsBeen : list) {
 //									System.out.println(problemsBeen);
 									if(problemsBeen.getCid()==cid) {
@@ -262,8 +273,11 @@ public class Main {
 									}
 								}
 								if(flag) {
+									
 									String string= engerlmplobj.updateComplainStatus(cid);
+									
 									if(string!=null) {
+										
 										System.out.println(string);
 									}
 									else {
@@ -321,21 +335,22 @@ public class Main {
 			case 3:
 //				Thread.sleep(600);
 				loding();
-				System.out.println("WELCOME TO EMPLOYEE PAGE");
-				Thread.sleep(600);
+				System.out.println("WELCOME TO EMPLOYEE DEPARTMENT");
+				
 				System.out.println("Choose");
-				Thread.sleep(600);
+			
 				System.out.println("1 Register");
-				Thread.sleep(600);
+			
 				System.out.println("2 Login");
-				Thread.sleep(600);
+			
 				System.out.println("3 Back");
 				int empchoice=sc.nextInt();
+				
 				if(empchoice==1) {
 					employeeBeen=employeelmpl.empRagister();
 					if(employeeBeen!=null) {
 //						employeMethod();
-						Thread.sleep(600);
+					
 						while(true) {
 							
 							
@@ -346,10 +361,16 @@ public class Main {
 							
 							
 							if(hi==1) {
+								
+								
 								employeeBeen=employeelmpl.empLogin();
+								
 								if(employeeBeen!=null) {
+									
+									
 									employeMethod();
-//									continue;
+									
+//									
 								}
 								
 								else {

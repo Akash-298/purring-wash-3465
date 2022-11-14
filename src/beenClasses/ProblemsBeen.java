@@ -9,11 +9,13 @@ public class ProblemsBeen {
 	private String cname;
 	private String c_status;
 	private String c_role;
+	
 	public ProblemsBeen(String cname, String c_status, String c_role) {
 		this.cname = cname;
 		this.c_status = c_status;
 		this.c_role = c_role;
 	}
+	
 	public ProblemsBeen(int cid, String cname, String c_status, String c_role) {
 		this.cid = cid;
 		this.cname = cname;

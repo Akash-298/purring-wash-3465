@@ -7,6 +7,7 @@ public class EmpProblemClassbeen {
 	private String cname;
 	private String  c_status;
 	private String c_role;
+	
 	public EmpProblemClassbeen(String name, String en_role, int cid, String cname, String c_status, String c_role) {
 		super();
 		this.name = name;
@@ -16,6 +17,7 @@ public class EmpProblemClassbeen {
 		this.c_status = c_status;
 		this.c_role = c_role;
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -52,6 +54,7 @@ public class EmpProblemClassbeen {
 	public void setC_role(String c_role) {
 		this.c_role = c_role;
 	}
+	
 	@Override
 	public String toString() {
 		return "| name: " + name + ", en_role: " + en_role + ", cid: " + cid + ", cname: " + cname
